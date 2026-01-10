@@ -1,0 +1,83 @@
+/* ui inspired - https://dribbble.com/shots/18469821-Food-web-Landing-Page */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+header {
+    width: 100vw;
+    height: 100px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 2fr 4fr 1fr;
+    grid-template-rows: 1fr;
+    box-sizing: border-box;
+}
+
+nav {
+    display: grid;
+    margin: 0 auto;
+    box-sizing: border-box;
+    grid-auto-flow: column;
+}
+
+nav button {
+    all: unset;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+    height: 100%;
+    padding: 0 64px;
+}
+
+#content {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr 4fr 2fr 1fr;
+    grid-template-rows: 3fr 5fr 1fr;
+    background-image: url('./images/restaurant.jpg');
+    background-size: cover;
+}
+
+#introduction {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    row-gap: 64px;
+    flex-direction: column;
+}
+
+#introBtn {
+    all: unset;
+    font-size: 16px;
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 16px;
+    background-color: rgb(177, 4, 4);
+    width: 112px;
+    text-align: center;
+}
+
+.funkyFont, #logo {
+    font-family: "Noto Sans", sans-serif;
+}
+
+#logo {
+    grid-column: 2 / 3;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+#immersiveH1 {
+    font-size: 64px;
+}
