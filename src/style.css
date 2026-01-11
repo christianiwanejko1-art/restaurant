@@ -7,7 +7,7 @@
     color: white;
 }
 
-.overflow {
+.no-scroll {
     overflow: hidden;
 }
 
@@ -55,6 +55,7 @@ nav button {
 .content {
   display: grid;
   width: 100vw;
+  height: 90vh;
 
   /* REMOVE this */
   /* height: 100vh; */
@@ -123,7 +124,7 @@ nav button {
 }
 
 #menuH1 {
-    grid-column: 2 / 3;
+    grid-column: 1 / 3;
     grid-row: 1;
     color: black;
     border: 1px solid black;
@@ -132,14 +133,16 @@ nav button {
     place-items: center; /* ✅ centers text vertically & horizontally */
 }
 
-#menuContainer {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
+.menuContainer {
+    grid-column: 2 / 4;
+    grid-row: 1 / 4;
     display: grid;
     grid-auto-rows: 1fr;
     grid-auto-flow: row;
     margin-bottom: 128px;
+    text-align: center;
 }
+
 
 .item {
     padding: 32px;

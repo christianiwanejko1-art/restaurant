@@ -1,12 +1,12 @@
-const contentContainer = document.querySelector('.content');
+const contentContainer = document.querySelector('#content');
 
 const createMain = function () {
-    contentContainer.innerHTML = ' '
-    contentContainer.classList.remove('alternativeL')
-    document.body.classList.add("no-scroll");    // disable scroll
-    contentContainer.classList.add("bg-default");
-    contentContainer.classList.add("content");
     contentContainer.innerHTML = ''
+    contentContainer.classList.add("bg-default");
+    document.body.classList.add("no-scroll");    // disable scroll
+    
+    const content = document.createElement('div')
+    content.classList.add("content");
     const intro = document.createElement('div');
     intro.id = 'introduction';
     const introH1 = document.createElement('h1')
@@ -18,37 +18,10 @@ const createMain = function () {
     const introButton = document.createElement('button')
     introButton.textContent = 'See Menu'
     introButton.id = 'introBtn'
-    introButton.addEventListener('click', () => {
-        createMain()
-    })
     intro.append(introH1, introP, introButton)
-    contentContainer.appendChild(intro)
+    content.appendChild(intro)
+    contentContainer.appendChild(content)
 }
-
-        // <div id="menuContainer">
-        //     <h1>Our Menu</h1>
-        //     <div class="item">
-        //         <h2>Garden Salad</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        //     </div>
-        //     <div class="item">
-        //         <h2>Lasagna</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        //     </div>
-        //     <div class="item">
-        //         <h2>Bento Box</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        //     </div>
-        //     <div class="item">
-        //         <h2>Baked Mac and Cheese</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        //     </div>
-        //     <div class="item">
-        //         <h2>Teriyaki</h2>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-        //     </div>
-        // </div>
-
 
 
 const createMenu = function () {
@@ -57,24 +30,24 @@ const createMenu = function () {
             this.name = name
             this.description = description
         }
-    }  
-const content = document.querySelector('.content');
+    }
     document.body.classList.remove("no-scroll");    // disable scroll
-    content.classList.add('alternativeL')
-    const content2 = document.querySelector('.alternativeL');
-    content2.innerHTML = ''
-    content2.classList.remove('content')
-    const div = document.createElement('div')
-    div.id = 'menuContainer'
+    contentContainer.innerHTML = ''
+    const menuContainer = document.createElement('div')
+    menuContainer.classList.add('menuContainer')
     const menuH1 = document.createElement('h1');
     menuH1.id = 'menuH1';
     menuH1.textContent = "Menu"
-    content2.appendChild(menuH1);
+    menuContainer.appendChild(menuH1)
+    contentContainer.appendChild(menuContainer)
+    const menuContain = document.querySelector('.menuContainer')
+
     const item1 = new food('Lasagna','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
     const item2 = new food('Bento Box','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
     const item3 = new food('Baked Mac and Cheese','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
     const item4 = new food('Teriyaki','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
-    const items = [item1,item2,item3,item4];
+    const item5 = new food('Grilled Chicken','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
+    const items = [item1,item2,item3,item4,item5];
 
     function createItem(item) {
         const card = document.createElement('div');
@@ -84,18 +57,27 @@ const content = document.querySelector('.content');
         const cardP = document.createElement('p');
         cardP.textContent = `${item.description}`;
         card.append(cardH1, cardP)
-        div.appendChild(card)
-        content2.appendChild(div)
+        menuContain.appendChild(card)
     }
 
     for (let i=0; i < items.length; i++){
         createItem(items[i])
     }
-    
 }
 
 const createAbout = function () {
-    
+    contentContainer.innerHTML = ''
+
 }
+
+        // <div id="aboutUs">
+        //     <h1>About Us</h1>
+        // </div>
+        // <div id="aboutUsBlack">
+        //     <h1>Our Story</h1>
+        //     <p>Lorem ipsum</p>
+        //     <div id="aboutUsBlackImg">
+        //     </div>
+        // </div>
 
 export { createMain, createMenu, createAbout};
