@@ -7,9 +7,17 @@
         // </div>
 
 const createMain = function () {
-    document.getElementById('content');
+    const contentContainer = document.getElementById('content');
+    contentContainer.innerHTML = ''
     const intro = document.createElement('div');
     intro.classList.add('introduction');
+    const introH1 = document.createElement('h1')
+    const introP = document.createElement('p')
+    const introButton = document.createElement('button')
+    introButton.textContent = 'See Menu'
+
+    intro.append(introH1, introP, introButton)
+    contentContainer.appendChild(intro)
 }
 
 export { createMain };
