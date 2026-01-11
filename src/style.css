@@ -37,14 +37,13 @@ nav button {
     padding: 0 64px;
 }
 
-#content {
+.content {
     display: grid;
     width: 100vw;
     height: 100vh;
     grid-template-columns: 1fr 4fr 2fr 1fr;
     grid-template-rows: 3fr 5fr 1fr;
-    background-image: url('./images/restaurant.jpg');
-    background-size: cover;
+
 }
 
 #introduction {
@@ -80,4 +79,30 @@ nav button {
 
 #immersiveH1 {
     font-size: 64px;
+}
+
+.bg-default {
+    background-image: url('./images/restaurant.jpg');
+    background-size: cover;
+}
+
+
+#menuContainer {
+    grid-column: 2 / 4;
+    background-color: red;
+}
+
+#menuH1 {
+    grid-column: 2 / 4;
+}
+
+.item {
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+}
+
+#alternativeL {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
 }

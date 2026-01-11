@@ -1,13 +1,6 @@
-        // <div id="mainBanner">
-        //     <div id="introduction">
-        //         <h1>Immersive Food</h1>
-        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        //         <button>See Menu</button>
-        //      </div>
-        // </div>
+const contentContainer = document.getElementsByClassName('content');
 
 const createMain = function () {
-    const contentContainer = document.getElementById('content');
     contentContainer.innerHTML = ''
     const intro = document.createElement('div');
     intro.id = 'introduction';
@@ -20,9 +13,77 @@ const createMain = function () {
     const introButton = document.createElement('button')
     introButton.textContent = 'See Menu'
     introButton.id = 'introBtn'
-
+    introButton.addEventListener('click', () => {
+        createMain()
+    })
     intro.append(introH1, introP, introButton)
     contentContainer.appendChild(intro)
 }
 
-export { createMain };
+        // <div id="menuContainer">
+        //     <h1>Our Menu</h1>
+        //     <div class="item">
+        //         <h2>Garden Salad</h2>
+        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+        //     </div>
+        //     <div class="item">
+        //         <h2>Lasagna</h2>
+        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+        //     </div>
+        //     <div class="item">
+        //         <h2>Bento Box</h2>
+        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+        //     </div>
+        //     <div class="item">
+        //         <h2>Baked Mac and Cheese</h2>
+        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+        //     </div>
+        //     <div class="item">
+        //         <h2>Teriyaki</h2>
+        //         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+        //     </div>
+        // </div>
+
+
+
+const createMenu = function () {
+    class food {
+        constructor(name, description){
+            this.name = name
+            this.description = description
+        }
+    }  
+    const content = document.getElementsByClassName('content')
+    content.innerHTML = ''
+    const div = document.createElement('div')
+    div.id = 'menuContainer'
+    const menuH1 = document.createElement('h1');
+    menuH1.id = 'menuH1';
+    menuH1.textContent = "Menu"
+    content.appendChild(menuH1);
+    const item1 = new food('Lasagna','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
+    const item2 = new food('Bento Box','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
+    const item3 = new food('Baked Mac and Cheese','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
+    const item4 = new food('Teriyaki','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
+    const items = [item1,item2,item3,item4]
+
+    function createItem(item) {
+        const card = document.createElement('div');
+        card.classList.add('.item');
+        const cardH1 = document.createElement('h1');
+        cardH1.textContent = `${item.name}`
+        const cardP = document.createElement('p');
+        cardP.textContent = `${item.description}`;
+        card.append(cardH1, cardP)
+        div.appendChild(card)
+        content.appendChild(div)
+    }
+
+    for (let i=0; i < items.length; i++){
+        createItem(items[i])
+    }
+
+    
+}
+
+export { createMain, createMenu};
