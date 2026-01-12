@@ -6,7 +6,7 @@ const createMain = function () {
     document.body.classList.add("no-scroll");    // disable scroll
     
     const content = document.createElement('div')
-    content.classList.add("content");
+    content.classList.add("homeContent");
     const intro = document.createElement('div');
     intro.id = 'introduction';
     const introH1 = document.createElement('h1')
@@ -31,6 +31,8 @@ const createMenu = function () {
             this.description = description
         }
     }
+    const contentInner = document.createElement('div')
+    contentInner.id = 'contentInner'
     document.body.classList.remove("no-scroll");    // disable scroll
     contentContainer.innerHTML = ''
     const menuContainer = document.createElement('div')
@@ -39,7 +41,8 @@ const createMenu = function () {
     menuH1.id = 'menuH1';
     menuH1.textContent = "Menu"
     menuContainer.appendChild(menuH1)
-    contentContainer.appendChild(menuContainer)
+    contentInner.appendChild(menuContainer)
+    contentContainer.appendChild(contentInner)
     const menuContain = document.querySelector('.menuContainer')
 
     const item1 = new food('Lasagna','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore')
@@ -67,7 +70,31 @@ const createMenu = function () {
 
 const createAbout = function () {
     contentContainer.innerHTML = ''
+    document.body.classList.add("no-scroll");  
+    const aboutWrapper = document.createElement('div')
+    aboutWrapper.classList.add('aboutWrapper')
+    const aboutContent = document.createElement('div');
+    aboutContent.classList.add('aboutContent')
 
+    const aboutUs = document.createElement('div')
+    aboutUs.classList.add('aboutUs');
+    const aboutUsH1 = document.createElement('h1')
+    aboutUsH1.id = 'aboutUsH1'
+    aboutUsH1.textContent = 'About Us';
+    aboutUs.appendChild(aboutUsH1)
+    aboutContent.appendChild(aboutUs)
+
+    const aboutUsBlack = document.createElement('div')
+    aboutUsBlack.id = 'aboutUsBlack';
+    const aboutUsBlackH1 = document.createElement('h1');
+    aboutUsBlackH1.textContent = 'Our Story';
+    const aboutUsBlackP = document.createElement('p');
+    aboutUsBlackP.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
+    const aboutUsBlackImg = document.createElement('div');
+    aboutUsBlackImg.classList.add('aboutUsBlackImg');
+    aboutUsBlack.append(aboutUsBlackH1,aboutUsBlackP,aboutUsBlackImg)
+    aboutWrapper.append(aboutContent, aboutUsBlack)
+    contentContainer.append(aboutWrapper)
 }
 
         // <div id="aboutUs">
