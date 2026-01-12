@@ -3,23 +3,27 @@ import "./style.css"
 
 let homeBtn = document.getElementById('home')
 let menuBtn = document.getElementById('menu')
+const content = document.querySelector('.content');
+const content2 = document.querySelector('.alternativeL');
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    content.classList.add("bg-default");
     createMain()
+    // content.classList.add("bg-default");
 })
 
 
 homeBtn.addEventListener('click', () => {
     createMain()
     content.classList.add("bg-default");
-    content.classList.remove('alternativeL')
+    // content2.classList.add("content");
+    
 })
 
 
-menuBtn.addEventListener('click', () => {
-    content.classList.remove("bg-default");
-    content.classList.add('alternativeL')
-
+menuBtn.addEventListener('click', () => {        
     createMenu()
+    content.classList.remove("bg-default");
+
+    // content.classList.remove("bg-default");
 })
